@@ -1,5 +1,7 @@
 package de.lraupach.embeddeddbs.core;
 
+import de.lraupach.embeddeddbs.model.Drug;
+
 import java.sql.*;
 import java.util.logging.Logger;
 
@@ -15,7 +17,6 @@ public class SQLiteTest {
 
     public SQLiteTest() {
         getConnection();
-        addDrug("Warfarin", "81-81-2");
     }
 
     public static ResultSet displayUsers() {
@@ -30,11 +31,11 @@ public class SQLiteTest {
         return res;
     }
 
-    public static void addDrug(String drugName, String cas) {
+    public void addDrug(Drug drug) {
         try (PreparedStatement prep = con
                 .prepareStatement(QUERY_INSERT_TABLE_DRUG)) {
-            prep.setString(2, drugName);
-            prep.setString(3, cas);
+            prep.setString(2, drug.getCas());
+            prep.setString(3, drug.getName());
             prep.execute();
         } catch (SQLException e) {
             LOGGER.severe("Failed to execute SQLite statement. " + e);

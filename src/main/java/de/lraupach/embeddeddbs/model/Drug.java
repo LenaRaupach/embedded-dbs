@@ -4,6 +4,11 @@ public class Drug {
     private String name;
     private String cas;
 
+    public Drug(String name, String cas) {
+        this.name = name;
+        this.cas = cas;
+    }
+
     public String getName() {
         return name;
     }
