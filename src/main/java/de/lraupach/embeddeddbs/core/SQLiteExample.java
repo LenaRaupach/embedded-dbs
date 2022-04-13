@@ -5,7 +5,7 @@ import de.lraupach.embeddeddbs.model.Drug;
 import java.sql.*;
 import java.util.logging.Logger;
 
-public class SQLiteTest {
+public class SQLiteExample {
     private static final Logger LOGGER = Logger.getLogger("SQLiteTest");
     static final String QUERY_CREATE_TABLE_DRUG = "CREATE TABLE drug(id integer, name varchar(60), cas varchar(60), " +
             "primary key (id));";
@@ -15,7 +15,7 @@ public class SQLiteTest {
     private static Connection con;
     private static boolean hasData = false;
 
-    public SQLiteTest() {
+    public SQLiteExample() {
         getConnection();
     }
 
